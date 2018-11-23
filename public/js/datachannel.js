@@ -58,7 +58,9 @@ io.on('signaling_message', function(data) {
 
 function startSignaling() {
 	displaySignalMessage("starting signaling...");
-	rtcPeerConn = new webkitRTCPeerConnection(configuration, null);
+	//Chrome..not firefox?
+	//rtcPeerConn = new webkitRTCPeerConnection(configuration, null);
+	rtcPeerConn = new RTCPeerConnection(configuration, null);
 	dataChannel = rtcPeerConn.createDataChannel('textMessages', dataChannelOptions);
 				
 	dataChannel.onopen = dataChannelStateChanged;
